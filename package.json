@@ -1,0 +1,29 @@
+{
+  "name": "scraping-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
+    "bluebird": "^3.7.2",
+    "bootstrap": "^4.4.1",
+    "cheerio": "^1.0.0-rc.3",
+    "d3-dsv": "^1.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mysql": "^2.18.1",
+    "nightmare": "^3.0.2",
+    "nightmare-load-filter": "^0.2.0",
+    "save": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "handlebars": "^4.7.6"
+  }
+}

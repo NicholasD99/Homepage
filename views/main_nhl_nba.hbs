@@ -1,0 +1,115 @@
+<head>
+<script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var am_pm = 'am';
+  if (h > 12) {
+    h = h - 12;
+    am_pm = 'pm';
+  }
+  if (h == 0) {
+  	h = 12;
+  }
+ 
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  "The current time is " + h + ":" + m + ":" + s + " " + am_pm;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
+</script>
+</head>
+
+<body onload="startTime()">
+
+<div id= "hi-info">Welcome back, Nick! </div>
+<div id="txt"></div>
+
+<div id="weather-info"> 
+
+<b>The weather today in {{weathers.name}} is </b>  
+<b>{{weathers.celsius}} degrees Celsius </b> 
+<b>with {{weathers.weatherDescription}},</b>
+<b>a visibaility of {{weathers.visibilityRound}} km,</b>
+<b> and wind speeds up to {{weathers.wind.speed}} km/hour</b>  
+  
+ </div>
+
+<div id="both-tables">
+	<div id="nhl-table">
+		<div id="table-wrapper-nhl">
+			<div id="table-scroll-nhl">
+				<table class="table table-light table-striped">
+					<caption id="nhl-caption"><b>Top 75 NHL Goalie Statistics 2019/20 Table</b></caption>
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+				  				<th scope="col">Player Name</th>
+							    <th scope="col">Team</th>
+							    <th scope="col">Wins</th>
+							    <th scope="col">Save Percentage</th>
+							    <th scope="col">Goals Against Average</th>
+							    <th scope="col">Quality Start Percentage</th>
+				 			</tr>
+				 		</thead>
+			     		{{#eachData goalieList}}
+			     		<tr>
+			     			<th scope="row">{{math index "+" 1}}</th>
+			    			<td>{{this.playerName}}</td>
+					    	<td>{{this.team}}</td>
+					    	<td>{{this.wins}}</td>
+					    	<td>{{this.savePercentage}}</td>
+					    	<td>{{this.goalsAgainstAverage}}</td>
+					    	<td>{{this.qualityStartPercentage}}</td>
+			    		</tr>
+			    		{{/eachData}}
+				</table>
+			</div>
+		</div>
+	</div>
+	<div id="nba-table">
+		<div id="table-wrapper-nba">
+			<div id="table-scroll-nba">
+				<table class="table table-light table-striped">
+					<caption id="nba-caption"><b>Top 75 NBA Player Statistics 2019/20 Table</b></caption>
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+				  				<th scope="col">Player Name</th>
+				  				<th scope="col">Team</th>
+				    			<th scope="col">Field Goal Percentage</th>
+				    			<th scope="col">Threes Percentage</th>
+				    			<th scope="col">Twos Percentage</th>
+				    			<th scope="col">Free Throw Percentage</th>
+				    			<th scope="col">Points Per Game</th>
+							</tr>
+						</thead>
+			    		{{#eachData nbaPlayerList}}
+						<tr>
+							<th scope="row">{{math index "+" 1}}</th>
+			    			<td>{{this.playerName}}</td>
+			    			<td>{{this.team}}</td>
+			    			<td>{{this.fieldGoalPercentage}}</td>
+			    			<td>{{this.threesPercentage}}</td>
+			    			<td>{{this.twosPercentage}}</td>
+			    			<td>{{this.freeThrowPercentage}}</td>
+			    			<td>{{this.pointsPerGame}}</td>
+			    		</tr>
+			    		{{/eachData}}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
